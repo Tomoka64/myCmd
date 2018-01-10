@@ -19,7 +19,11 @@ var addCmd = &cobra.Command{
 		sum := 0
 		for _, arg := range args {
 			var a int
-			a, _ = strconv.Atoi(arg)
+			var err error
+			a, err = strconv.Atoi(arg)
+			if err != nil {
+				fmt.Println("some values are not number")
+			}
 			sum += a
 		}
 		fmt.Println(sum)
