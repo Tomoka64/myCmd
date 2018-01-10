@@ -16,10 +16,12 @@ var addCmd = &cobra.Command{
 	Short: "Calculator of addition.",
 	Long:  "Calculator to perform the addition.",
 	Run: func(cmd *cobra.Command, args []string) {
-		var n1 int
-		var n2 int
-		n1, _ = strconv.Atoi(args[0])
-		n2, _ = strconv.Atoi(args[1])
-		fmt.Println(n1 + n2)
+		sum := 0
+		for _, arg := range args {
+			var a int
+			a, _ = strconv.Atoi(arg)
+			sum += a
+		}
+		fmt.Println(sum)
 	},
 }
